@@ -2,3 +2,4 @@
 .pwd
 .l.obj
 .s.obj
+cleanup.sh
