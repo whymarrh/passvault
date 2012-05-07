@@ -30,7 +30,6 @@ public class Passvault extends JFrame {
     private PasswordList pwdList = null;
     private JPanel panel = null;
     private String label = null;
-    private Secure secure = null;
     private BufferedWriter wtr = null;
     private String filename = ".pwd";
     /**

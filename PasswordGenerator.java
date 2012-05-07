@@ -39,7 +39,7 @@ public class PasswordGenerator extends JFrame {
     private String service = null;
     private boolean usePunct = true;
     private boolean useDigits = true;
-    private boolean useLowercase = true;
+    private boolean useUppercase = true;
     /**
      * Constructs the PasswordGenerator class and creates the
      * main password generator window. Generates a random password
@@ -64,7 +64,7 @@ public class PasswordGenerator extends JFrame {
         StringBuilder sb = new StringBuilder(l);
         Random gen = new Random((new Random((new Random((new Random()).nextInt())).nextInt())).nextInt());
         for (int i = 0; i < l; i++) {
-            char c = (char)(65 + gen.nextInt(26));
+            char c = (char)(97 + gen.nextInt(26));
             sb.insert(i, c);
         }
         if (usePunct)
@@ -74,10 +74,10 @@ public class PasswordGenerator extends JFrame {
               sb.deleteCharAt(place);
               sb.insert(place, c);
             }
-        if (useLowercase)
+        if (useUppercase)
             for (int i = 0; i < l / 2; i++) {
               int place = gen.nextInt(l);
-              char c = (char)(97 + gen.nextInt(26));
+              char c = (char)(65 + gen.nextInt(26));
               sb.deleteCharAt(place);
               sb.insert(place, c);
             }
@@ -128,12 +128,12 @@ public class PasswordGenerator extends JFrame {
         Border bdr = BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(Color.BLACK), BorderFactory.createEmptyBorder(m, m, m, m));
         name = new JTextField(13);
         name.setBorder(bdr);
-        row1x1.add(new JLabel("This Password Is For: "));
+        row1x1.add(new JLabel("This password is for: "));
         row1x1.add(name);
         row1.add(row1x1, BorderLayout.PAGE_START);
         JPanel row1x2 = new JPanel(new FlowLayout(FlowLayout.LEFT));
-        row1x2.add(new JLabel("Password Length: "));
-        SpinnerNumberModel model = new SpinnerNumberModel(8, 1, 15, 1);
+        row1x2.add(new JLabel("Password length: "));
+        SpinnerNumberModel model = new SpinnerNumberModel(8, 6, 15, 1);
         length = new JSpinner(model);
         length.addChangeListener(new ChangeListener() {
             public void stateChanged(ChangeEvent evt) {
@@ -144,14 +144,14 @@ public class PasswordGenerator extends JFrame {
         row1x2.add(length);
         row1.add(row1x2, BorderLayout.CENTER);
         JPanel row1x3 = new JPanel(new FlowLayout(FlowLayout.LEFT, 0, 0));
-        JCheckBox upcase = new JCheckBox("A-Z");
-        upcase.setSelected(true);
-        upcase.setEnabled(false);
-        final JCheckBox lowcase = new JCheckBox("a-z");
+        JCheckBox lowcase = new JCheckBox("a-z");
         lowcase.setSelected(true);
-        lowcase.addActionListener(new ActionListener() {
+        lowcase.setEnabled(false);
+        final JCheckBox upcase = new JCheckBox("A-Z");
+        upcase.setSelected(true);
+        upcase.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                useLowercase = !useLowercase;
+                useUppercase = !useUppercase;
                 generatePassword();
             }
         });
@@ -171,22 +171,16 @@ public class PasswordGenerator extends JFrame {
                 generatePassword();
             }
         });
-        row1x3.add(upcase);
         row1x3.add(lowcase);
+        row1x3.add(upcase);
         row1x3.add(digits);
         row1x3.add(punct);
         row1.add(row1x3, BorderLayout.PAGE_END);
-        JPanel row3 = new JPanel(new FlowLayout(FlowLayout.LEFT));
-        udef = new JTextField(13);
-        udef.setBorder(bdr);
-        row3.add(new JLabel("<html><b>OR</b> Use Your Own Password: </html>"));
-        row3.add(udef);
         int e = 30;
         JPanel pnl = new JPanel(new BorderLayout());
         pnl.setBorder(BorderFactory.createEmptyBorder(e, e, e, e));
         pnl.add(row1, BorderLayout.PAGE_START);
         pnl.add(row2, BorderLayout.CENTER);
-        pnl.add(row3, BorderLayout.PAGE_END);
         return pnl;
     }
     /**
@@ -195,13 +189,13 @@ public class PasswordGenerator extends JFrame {
      */
     private JPanel bottomPanel() {
         JPanel pnl = new JPanel(new GridLayout(1, 3));
-        JButton generate = new JButton("Generate New");
+        JButton generate = new JButton("Generate new");
         generate.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 generatePassword();
             }
         });
-        JButton usepass = new JButton("Use This One");
+        JButton usepass = new JButton("Use this one");
         usepass.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 service = name.getText();
@@ -209,7 +203,6 @@ public class PasswordGenerator extends JFrame {
                     name.setBackground(new Color(1.0f, 0.0f, 0.0f, 0.5f));
                     return;
                 }
-                if (!udef.getText().equals("")) password = udef.getText();
                 pv.setNextPassword(service, password);
                 dispose();
             }
