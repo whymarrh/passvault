@@ -42,9 +42,9 @@ Everyone is permitted to copy and distribute verbatim or modified copies of this
 
 The software is provided "as is", without warranty of any kind, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose and non-infringement.
 
-  [1]:docs/f1.png
-  [2]:docs/f2.png
-  [3]:docs/f3.png
-  [4]:docs/f4.png
-  [5]:docs/f5.png
+  [1]:https://github.com/whymarrh/passvault/raw/master/docs/f1.png
+  [2]:https://github.com/whymarrh/passvault/raw/master/docs/f2.png
+  [3]:https://github.com/whymarrh/passvault/raw/master/docs/f3.png
+  [4]:https://github.com/whymarrh/passvault/raw/master/docs/f4.png
+  [5]:https://github.com/whymarrh/passvault/raw/master/docs/f5.png
   [6]:http://xkcd.com
