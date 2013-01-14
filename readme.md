@@ -18,7 +18,7 @@ To create a new password entry, select Add Password from the File menu, enter th
 
 There is no option to delete a password.
 
-**Figures 1-5:**
+**Figures 1-5**
 
 ![Figure 1][1]
 ![Figure 2][2]
