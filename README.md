@@ -20,20 +20,15 @@ There is no option to delete a password.
 
 **Figures 1-5**
 
-![Figure 1][1]
-![Figure 2][2]
-![Figure 3][3]
-![Figure 4][4]
-![Figure 5][5]
+![Figure 1](imgs/f1.png)
+![Figure 2](imgs/f2.png)
+![Figure 3](imgs/f3.png)
+![Figure 4](imgs/f4.png)
+![Figure 5](imgs/f5.png)
 
 Credit
 ======
 
 Credit to [XKCD][6] for the two comics to which I have linked, and to [Flat-it](http://flat-it.com/) for the Bebas typeface.
 
-  [1]:https://github.com/whymarrh/passvault/raw/master/imgs/f1.png
-  [2]:https://github.com/whymarrh/passvault/raw/master/imgs/f2.png
-  [3]:https://github.com/whymarrh/passvault/raw/master/imgs/f3.png
-  [4]:https://github.com/whymarrh/passvault/raw/master/imgs/f4.png
-  [5]:https://github.com/whymarrh/passvault/raw/master/imgs/f5.png
   [6]:http://xkcd.com
